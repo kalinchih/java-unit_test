@@ -1,4 +1,2 @@
-# java-unit_test
+# java-unit_test-junit4
 
-- JUnit 5
-- JUnit 4
