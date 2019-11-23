@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>kalinchih</groupId>
-    <artifactId>java-unit_test-junit</artifactId>
+    <artifactId>java-unit_test</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>java-unit_test-junit</name>
+    <name>java-unit_test</name>
 
 
     <properties>
@@ -15,20 +15,21 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+
     <build>
         <plugins>
+            <!-- junit 5 -->
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.0</version>
                 <dependencies>
-                    <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-surefire-provider -->
                     <dependency>
                         <groupId>org.junit.platform</groupId>
                         <artifactId>junit-platform-surefire-provider</artifactId>
                         <version>1.3.2</version>
                     </dependency>
-                    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
                     <dependency>
                         <groupId>org.junit.jupiter</groupId>
                         <artifactId>junit-jupiter-engine</artifactId>
@@ -36,18 +37,24 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            -->
         </plugins>
     </build>
 
+
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.5.2</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
