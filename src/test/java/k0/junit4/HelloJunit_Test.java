@@ -5,13 +5,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class HelloJunit {
+public class HelloJunit_Test {
 
-    private k0.junit.HelloJunit helloJunit = null;
+    private HelloJunit helloJunit = null;
 
     @Before
     public void before() {
-        this.helloJunit = new k0.junit.HelloJunit();
+        this.helloJunit = new HelloJunit();
     }
 
     @After

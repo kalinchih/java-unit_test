@@ -1,4 +1,4 @@
-package k0.junit;
+package k0.junit4;
 
 import org.apache.commons.lang3.StringUtils;
 
