@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 
+/** Mockito: practice mock, stub, dummy, verify */
 public class OrderBizHelper_PostgreSQLUtil_Test {
 
     @Mock OrderDbUtil orderDbUtil;
