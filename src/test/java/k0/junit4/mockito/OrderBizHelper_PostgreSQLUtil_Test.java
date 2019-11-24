@@ -6,8 +6,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
@@ -15,12 +18,14 @@ import static org.mockito.Mockito.*;
 /** Mockito: practice mock, stub, dummy, verify */
 public class OrderBizHelper_PostgreSQLUtil_Test {
 
-    @Mock OrderDbUtil orderDbUtil;
-    OrderBizHelper orderBizHelper;
+    @Mock private OrderDbUtil orderDbUtil;
+    private OrderBizHelper orderBizHelper;
+    @Spy private List<OrderLineItem> orderLineItems;
 
     @Before
     public void setUp() {
         this.orderDbUtil = new OrderPostgreSQLUtils();
+        this.orderLineItems = new ArrayList<>();
         // *** MockitoAnnotations MUST BEHIND after mock object.
         // Otherwise throw `org.mockito.exceptions.misusing.MissingMethodInvocationException`.
         MockitoAnnotations.initMocks(this);
@@ -31,6 +36,7 @@ public class OrderBizHelper_PostgreSQLUtil_Test {
     @After
     public void tearDown() {
         this.orderDbUtil = null;
+        this.orderLineItems = null;
         this.orderBizHelper = null;
     }
 
@@ -95,5 +101,26 @@ public class OrderBizHelper_PostgreSQLUtil_Test {
             verify(this.orderDbUtil, times(1)).setOrderStatusCancel(any(Integer.class));
             throw e;
         }
+    }
+
+    @Test
+    public void spying_real_object() {
+        List<OrderLineItem> orderLineItems = spy(new ArrayList<>());
+        OrderLineItem expectedResult = new OrderLineItem();
+        expectedResult.setSkuId("SKU_1");
+        expectedResult.setAmount(1);
+        // *** Call empty List REAL method
+        // when(orderLineItems.get(0)).thenReturn(expectedResult);
+        // *** MUST use doReturn() for stubbing
+        doReturn(expectedResult).when(orderLineItems).get(0);
+    }
+
+    @Test
+    public void spying_real_object_2() {
+        OrderLineItem expectedResult = new OrderLineItem();
+        expectedResult.setSkuId("SKU_1");
+        expectedResult.setAmount(1);
+        // @Spy private List<OrderLineItem> orderLineItems;
+        doReturn(expectedResult).when(this.orderLineItems).get(0);
     }
 }

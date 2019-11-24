@@ -3,7 +3,7 @@ package k0.junit4.mockito;
 public class OrderLineItem {
 
     private String skuId;
-    private String amount;
+    private int amount;
 
     public String getSkuId() {
         return skuId;
@@ -13,11 +13,11 @@ public class OrderLineItem {
         this.skuId = skuId;
     }
 
-    public String getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 }
