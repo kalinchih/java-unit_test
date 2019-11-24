@@ -1,7 +1,7 @@
 # java-unit_test-junit4
 
 
-## JUnit: test, assert 
+## JUnit: Test, Assert 
 Demo: [HelloJunit_Test](/src/test/java/k0/junit4/HelloJunit_Test.java)
 - Preparation:
     - @Before
@@ -13,17 +13,30 @@ Demo: [HelloJunit_Test](/src/test/java/k0/junit4/HelloJunit_Test.java)
     - @Test(expected=Exception.class)
 
 
-## Run Unit Test in Maven
+## Maven: Run Unit Test
 ```mvn clean test```
 
-## Code Coverage
+
+## JaCoCo: Code Coverage
 [JaCoCo](https://www.eclemma.org/jacoco/) - by EClEmma 
 
 ```mvn verify```
 - Report path: /target/site/jacoco/index.html
 
-##  Mockito: mock, stub, dummy, verify, spy 
-Demo: [HelloJunit_Test](/src/test/java/k0/junit4/mockito/OrderBizHelper_PostgreSQLUtil_Test.java)
+
+## Junit Runner: Test by Parameters
+Demo: [HelloJunit_Test](/src/test/java/k0/junit4/order/Order_Test.java)
+
+- Define the testing data collection for input parameters & expected result
+    - Input parameters vs expected result = 1:1
+- Inject the testing data collection by constructor
+- Setup the testing data collection by a @Parameterized.Parameters static method
+- Write assertions in the @Test method
+- Define @RunWith(Parameterized.class) for this test class
+
+
+##  Mockito: Mock, Stub, Dummy, Verify, Spy 
+Demo: [HelloJunit_Test](/src/test/java/k0/junit4/order/OrderBizHelper_PostgreSQLUtil_Test.java)
 - Mock:
     - @Mock
     - MockitoAnnotations.initMocks(this);
@@ -46,8 +59,7 @@ Demo: [HelloJunit_Test](/src/test/java/k0/junit4/mockito/OrderBizHelper_PostgreS
         - In mock, you are creating a complete mock or fake object while in spy, there is the real object and you just spying or stubbing specific methods of it.
         - If you want to be safe and avoid calling external services and just want to test the logic inside of the unit, then use mock. 
         - I you just want stub specific methods or partial mock, then use spy.
-        
-         
+                 
 
 ## Unit Test Principles (F.I.R.S.T)
 - First

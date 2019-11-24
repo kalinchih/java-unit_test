@@ -1,4 +1,4 @@
-package k0.junit4.mockito;
+package k0.junit4.order;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -47,7 +47,7 @@ public class OrderBizHelper_PostgreSQLUtil_Test {
         // Leverage any(Order.class) to create a dummy Order object
         when(this.orderDbUtil.createOrder(any(Order.class))).thenReturn(expectedResult);
         // *** NOT to use any() to execute method. any() does not work in mockito 3+ version.
-        Object actualResult = this.orderBizHelper.placeOrder(new Order());
+        Object actualResult = this.orderBizHelper.placeOrder(new Order(null));
         Assert.assertEquals(expectedResult, actualResult);
         // Verify the mock method invocation times
         verify(this.orderDbUtil, times(1)).createOrder(any(Order.class));
@@ -60,7 +60,7 @@ public class OrderBizHelper_PostgreSQLUtil_Test {
                         OrderBizException.FAIL_TO_CREATE_AN_ORDER, new SQLException());
         when(this.orderDbUtil.createOrder(any(Order.class))).thenThrow(new SQLException());
         try {
-            Object actualResult = this.orderBizHelper.placeOrder(new Order());
+            Object actualResult = this.orderBizHelper.placeOrder(new Order(null));
         } catch (Exception e) {
             // Assert the exception message
             Assert.assertEquals(OrderBizException.FAIL_TO_CREATE_AN_ORDER, e.getMessage());

@@ -1,4 +1,4 @@
-package k0.junit4.mockito;
+package k0.junit4.order;
 
 import java.sql.SQLException;
 
