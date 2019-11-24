@@ -20,6 +20,7 @@ Demo: [HelloJunit_Test](/src/test/java/k0/junit4/HelloJunit_Test.java)
 [JaCoCo](https://www.eclemma.org/jacoco/) - by EClEmma 
 
 ```mvn verify```
+- Report path: /target/site/jacoco/index.html
 
 ##  Mockito: mock, stub, dummy, verify, spy 
 Demo: [HelloJunit_Test](/src/test/java/k0/junit4/mockito/OrderBizHelper_PostgreSQLUtil_Test.java)
