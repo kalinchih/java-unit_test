@@ -3,11 +3,10 @@
 
 ## Hello JUnit 4
 
-###[HelloJunit_Test](test/java/k0/junit4/HelloJunit_Test.class)
-
-@Before
-@After
-@Test
-@Test(expected=Exception.class)
+### [HelloJunit_Test](/src/test/java/k0/junit4/HelloJunit_Test.java)
+- @Before
+- @After
+- @Test
+- @Test(expected=Exception.class)
 
 
