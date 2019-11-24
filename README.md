@@ -13,6 +13,14 @@ Demo: [HelloJunit_Test](/src/test/java/k0/junit4/HelloJunit_Test.java)
     - @Test(expected=Exception.class)
 
 
+## Run Unit Test in Maven
+```mvn clean test```
+
+## Code Coverage
+[JaCoCo](https://www.eclemma.org/jacoco/) - by EClEmma 
+
+```mvn verify```
+
 ##  Mockito: mock, stub, dummy, verify, spy 
 Demo: [HelloJunit_Test](/src/test/java/k0/junit4/mockito/OrderBizHelper_PostgreSQLUtil_Test.java)
 - Mock:
@@ -29,4 +37,11 @@ Demo: [HelloJunit_Test](/src/test/java/k0/junit4/mockito/OrderBizHelper_PostgreS
     - Mockito.any()
 - Verify mock invocation:
     - Mockito.verify()
-    - Mockito.times() 
+    - Mockito.times()
+
+## Unit Test Principles (F.I.R.S.T)
+- First
+- Independent
+- Repeatable
+- Self-validation
+- Timely
