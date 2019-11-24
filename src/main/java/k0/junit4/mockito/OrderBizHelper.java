@@ -17,4 +17,16 @@ public class OrderBizHelper {
             throw new OrderBizException(OrderBizException.FAIL_TO_CREATE_AN_ORDER, e);
         }
     }
+
+    public void cancelOrder(Integer orderId) throws OrderBizException {
+        if (orderId == null) {
+            throw new OrderBizException(
+                    OrderBizException.FAIL_TO_CANCEL_AN_ORDER_WITH_NULL_ORDER_ID);
+        }
+        try {
+            orderDbUtil.setOrderStatusCancel(orderId);
+        } catch (SQLException e) {
+            throw new OrderBizException(OrderBizException.FAIL_TO_CANCEL_AN_ORDER, e);
+        }
+    }
 }
