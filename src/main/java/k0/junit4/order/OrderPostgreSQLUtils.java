@@ -5,10 +5,10 @@ import java.sql.SQLException;
 public class OrderPostgreSQLUtils extends OrderDbUtil {
 
     @Override
-    Integer createOrder(Order order) throws SQLException {
-        return null;
+    String createOrder(Order order) throws SQLException {
+        return order.getId();
     }
 
     @Override
-    void setOrderStatusCancel(Integer orderId) throws SQLException {}
+    void setOrderStatusCancel(String orderId) throws SQLException {}
 }

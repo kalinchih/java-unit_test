@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 public abstract class OrderDbUtil {
 
-    abstract Integer createOrder(Order order) throws SQLException;
+    abstract String createOrder(Order order) throws SQLException;
 
-    abstract void setOrderStatusCancel(Integer orderId) throws SQLException;
+    abstract void setOrderStatusCancel(String orderId) throws SQLException;
 }

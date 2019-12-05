@@ -42,7 +42,7 @@ public class OrderBizHelper_PostgreSQLUtil_Test {
 
     @Test
     public void placeOrder_success() throws SQLException, OrderBizException {
-        Integer expectedResult = new Integer(1);
+        String expectedResult = "order_id";
         // A stub fakes a return value to the createOrder() of the @Mock OrderDbUtil.
         // Leverage any(Order.class) to create a dummy Order object
         when(this.orderDbUtil.createOrder(any(Order.class))).thenReturn(expectedResult);
@@ -73,15 +73,15 @@ public class OrderBizHelper_PostgreSQLUtil_Test {
     @Test
     public void cancelOrder_success() throws SQLException, OrderBizException {
         // stub void setOrderStatusCancel()
-        doNothing().when(orderDbUtil).setOrderStatusCancel(anyInt());
-        this.orderBizHelper.cancelOrder(new Integer(1));
-        verify(this.orderDbUtil, times(1)).setOrderStatusCancel(any(Integer.class));
+        doNothing().when(orderDbUtil).setOrderStatusCancel(anyString());
+        this.orderBizHelper.cancelOrder("order_id");
+        verify(this.orderDbUtil, times(1)).setOrderStatusCancel(any(String.class));
     }
 
     @Test(expected = OrderBizException.class)
     public void cancelOrder_fail_to_cancel_an_order_with_null_order_id()
             throws SQLException, OrderBizException {
-        doNothing().when(orderDbUtil).setOrderStatusCancel(any(Integer.class));
+        doNothing().when(orderDbUtil).setOrderStatusCancel(any(String.class));
         try {
             this.orderBizHelper.cancelOrder(null);
         } catch (Exception e) {
@@ -94,12 +94,12 @@ public class OrderBizHelper_PostgreSQLUtil_Test {
     @Test(expected = OrderBizException.class)
     public void cancelOrder_fail_to_cancel_an_order() throws SQLException, OrderBizException {
         // Throw SQLException from the stub method
-        doThrow(SQLException.class).when(orderDbUtil).setOrderStatusCancel(any(Integer.class));
+        doThrow(SQLException.class).when(orderDbUtil).setOrderStatusCancel(any(String.class));
         try {
-            this.orderBizHelper.cancelOrder(new Integer(1));
+            this.orderBizHelper.cancelOrder("order_id");
         } catch (Exception e) {
             Assert.assertEquals(OrderBizException.FAIL_TO_CANCEL_AN_ORDER, e.getMessage());
-            verify(this.orderDbUtil, times(1)).setOrderStatusCancel(any(Integer.class));
+            verify(this.orderDbUtil, times(1)).setOrderStatusCancel(any(String.class));
             throw e;
         }
     }
