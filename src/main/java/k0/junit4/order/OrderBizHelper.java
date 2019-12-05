@@ -1,6 +1,8 @@
 package k0.junit4.order;
 
 import java.sql.SQLException;
+import java.time.Instant;
+import java.util.UUID;
 
 public class OrderBizHelper {
 
@@ -8,6 +10,10 @@ public class OrderBizHelper {
 
     public OrderBizHelper(OrderDbUtil orderDbUtil) {
         this.orderDbUtil = orderDbUtil;
+    }
+
+    public static String newOrderId() {
+        return String.format("%s-%s", Instant.now().toEpochMilli(), UUID.randomUUID().toString());
     }
 
     public Integer placeOrder(Order order) throws OrderBizException {
